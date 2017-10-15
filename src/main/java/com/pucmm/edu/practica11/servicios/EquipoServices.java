@@ -25,11 +25,10 @@ public class EquipoServices {
 
 
     @Transactional
-    public Equipo creacionEquipo(Equipo familia){
-        equipoRepository.save(familia);
-        return familia;
+    public Equipo creacionEquipo(Equipo equipo){
+        equipoRepository.save(equipo);
+        return equipo;
     }
-
 
 
     public List<Equipo> todosEquipos(){
@@ -37,6 +36,4 @@ public class EquipoServices {
     }
 
     public Equipo getEquipo(int id){return  equipoRepository.findById(id);}
-
-
 }

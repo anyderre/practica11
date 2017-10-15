@@ -18,34 +18,15 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     <!-- TABLE STYLES-->
     <link href="assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
+<#include "header.ftl">
 
 </head>
 
 <body>
 
-<!--
-    <#include "header.ftl"/>
-
-
-    <div id="wrapper">
-
-        <div id="page-wrapper">
-            <div id="page-inner">
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="panel panel-default">
-                            <div class="panel-heading">
-                                Ver equipos
-                            </div>
-                            <div class="panel-body">
-                               <h1><@spring.message "clientes" /></h1>
-                                <div class="table-responsive">
-
-                                    <table class="table table-striped table-bordered table-hover">
--->
-<#include "header.ftl"/>
-
 <div id="wrapper">
+<#--<!--        <#include "header.ftl"/>&ndash;&gt;-->
+<#include "nav.ftl"/>
 
     <div id="page-wrapper">
         <div id="page-inner">
@@ -53,10 +34,9 @@
                 <div class="col-md-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Ver equipos
+                            <h1><@spring.message "clientes" /></h1>
                         </div>
                         <div class="panel-body">
-                            <h1><@spring.message "clientes" /></h1>
                             <div class="table-responsive">
                                 <table class="table table-striped table-bordered table-hover">
                                     <thead>
@@ -85,7 +65,7 @@
                                     <#list clientes as u>
                                     <tr class="row-click" data-href="/administracion/editar/${u.cedula}">
                                         <td width="50px">
-                                            <!--                                                        <a href="editar_cliente?cedula=${u.cedula}"><img style="width: 150px;height: 100px;" class="img-circle" src="/archivos/${u.ruta_imagen}" /></a>-->
+                                            <!--<a href="editar_cliente?cedula=${u.cedula}"><img style="width: 150px;height: 100px;" class="img-circle" src="/archivos/${u.ruta_imagen}" /></a>-->
                                         </td>
                                         <td>${u.nombre}</td>
                                         <td>${u.apellido}</td>

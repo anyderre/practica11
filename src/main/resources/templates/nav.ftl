@@ -86,7 +86,7 @@
                             <a href="/clientes/">Ver Cliente</a>
                         </li>
                         <li>
-                            <a href="/clientes/crear_cliente">Crear Cliente</a>
+                            <a href="/clientes/crear_cliente/">Crear Cliente</a>
                         </li>
 
                     </ul>

@@ -7,16 +7,20 @@ import com.pucmm.edu.practica11.servicios.FamiliaServices;
 import com.pucmm.edu.practica11.servicios.SubFamiliaServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.transaction.Transactional;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.nio.file.Paths;
 import java.util.List;
+
 
 /**
  *  Created by Dany 13/10/2017
@@ -24,6 +28,8 @@ import java.util.List;
 @Controller()
 @RequestMapping("/equipos")
 public class EquiposController {
+
+
     @Autowired
     private EquipoServices equipoServices;
     @Autowired
@@ -36,6 +42,7 @@ public class EquiposController {
     public String ver_Equipos(Model model){
 
         List<Equipo> equipos = equipoServices.todosEquipos();
+        System.out.println("Hola :"+equipos.size());
         model.addAttribute("equipos",equipos);
         return "ver_equipos";
     }
@@ -48,7 +55,7 @@ public class EquiposController {
         return "/editar_equipo";
     }
     @PostMapping("/editar_equipo")
-    public String editarEquipoPost(@ModelAttribute Equipo equipo,@RequestParam("sub-familia") int subFamilia ){
+    public String editarEquipoPost(@ModelAttribute Equipo equipo, @RequestParam("sub-familia") int subFamilia ){
         SubFamilia subfamilia = subFamiliaServices.getSubfamilia(subFamilia);
         equipo.setSubFamilia(subfamilia);
         equipoServices.creacionEquipo(equipo);
@@ -73,10 +80,11 @@ public class EquiposController {
     @PostMapping("/crear_equipo/")
     @Transactional
     public String guardarEquipo(@ModelAttribute Equipo equipo,
-                                   @RequestParam("uploadfile") MultipartFile uploadfile, @RequestParam("sub-familia") int id_subFamilia){
+                                @RequestParam("uploadfile") MultipartFile uploadfile, @RequestParam("sub-familia") int id_subFamilia){
         try {
             SubFamilia subFamilia = subFamiliaServices.getSubfamilia(id_subFamilia);
             equipo.setSubFamilia(subFamilia);
+
             String filename = equipo.getId() + "_" + uploadfile.getOriginalFilename();
             String directory;
             directory ="C:\\fotos\\Equipos";
@@ -91,7 +99,6 @@ public class EquiposController {
         }
         catch (Exception e) {
             System.out.println(e.getMessage());
-
         }
 
         return "redirect:/equipos/";
