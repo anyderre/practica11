@@ -10,14 +10,19 @@ import java.util.List;
 public class Usuario implements Serializable{
 
     @Id
-    private String username = "";
+
+    @Column(unique=true,columnDefinition="VARCHAR(64)")
+    private String username;
     private String nombre;
-    private String apellido = "";
-    private String password= "";
+    private String apellido;
+    private String password;
     @OneToMany(mappedBy = "usuario")
     private List<Rol> roles;
     @Column(name = "enabled", nullable = false, columnDefinition = "int default 1")
     private int enabled = 1;
+
+    public Usuario() {
+    }
 
     public int getEnabled() {
         return enabled;
@@ -50,9 +55,6 @@ public class Usuario implements Serializable{
     public void setPassword(String password) {
         this.password = password;
     }
-
-
-
 
     public String getNombre() {
         return nombre;

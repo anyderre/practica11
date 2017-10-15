@@ -1,19 +1,23 @@
 package com.pucmm.edu.practica11;
 
 import com.pucmm.edu.practica11.entidades.Familia;
+import com.pucmm.edu.practica11.entidades.Rol;
 import com.pucmm.edu.practica11.entidades.SubFamilia;
+import com.pucmm.edu.practica11.entidades.Usuario;
 import com.pucmm.edu.practica11.servicios.FamiliaServices;
 import com.pucmm.edu.practica11.servicios.RolServices;
 import com.pucmm.edu.practica11.servicios.SubFamiliaServices;
 import com.pucmm.edu.practica11.servicios.UsuarioServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Locale;
 
 /**
@@ -23,11 +27,12 @@ import java.util.Locale;
 @RequestMapping("/zona_admin")
 public class AdminController {
     @Autowired
-    private UsuarioServices usuarioService;
-
-    @Autowired
     private MessageSource messageSources;
 
+    @Autowired
+    private UsuarioServices usuarioServices;
+    @Autowired
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Autowired
     private FamiliaServices familiaServices;
@@ -39,8 +44,13 @@ public class AdminController {
 
     @RequestMapping("/")
     public String verUsuarios(Model model){
-        model.addAttribute("usuarios",usuarioService.todosUsuarios());
-        return "/administracion";
+        ArrayList<Usuario>usuarios = new ArrayList<>();
+        for(Usuario usuario: usuarioServices.todosUsuarios()){
+            usuario.setRoles(rolServices.rolesUsuario(usuario.getUsername()));
+            usuarios.add(usuario);
+        }
+        model.addAttribute("usuarios",usuarios);
+        return "/ver_usuario";
     }
 
     @RequestMapping("/familias/")
@@ -80,52 +90,52 @@ public class AdminController {
         return "redirect:/zona_admin/familias/editar_familia?id="+ familia.getId();
     }
 
+    @RequestMapping("/crear_usuario/")
+    public String crearUsuario(Model model){
+        model.addAttribute("usuario", new Usuario());
+        model.addAttribute("allRoles", rolServices.todosRoles());
+        return "/crear_usuario";
+    }
 
-//
-//    @RequestMapping("/crear_usuario/")
-//    public String crearUsuario(Model model){
-//        model.addAttribute("usuario", new Usuario());
-//        model.addAttribute("allRoles", rolServices.todosRoles());
-//        return "/crear_usuario";
-//    }
-//
-//    @PostMapping("/crear_usuario/")
-//    @Transactional
-//    public String crearUsuarioPost(
-//            @RequestParam("roles") String[] roles, @RequestParam("username") String usuario,
-//            @RequestParam("password") String password, @RequestParam("nombre") String nombre,
-//            @RequestParam("apellido") String apellido
-//            ){
-//        Usuario u = new Usuario();
-//        u.setUsername(usuario);
-//        u.setNombre(nombre);
-//        u.setApellido(apellido);
-//         usuario.setPassword(bCryptPasswordEncoder.encode(password));
-//
-//        u = usuarioServices.creacionUsuario(u);
-//
-//        for(String rol: roles){
-//            Rol r = new Rol();
-//            r.setUsuario(u);
-//            r.setRol(rol);
-//            rolServices.creacionRol(r);
-//        }
-//
-//        return "redirect:/zona_admin/";
-//    }
-//
-//    @RequestMapping("/crear_rol/")
-//    public String crearRol(Model model){
-//        model.addAttribute("rol", new Rol());
-//        return "crear_rol";
-//    }
-//
-//    @PostMapping("/crear_rol/")
-//    public String crearRolPost(@ModelAttribute Rol rol){
-//
-//        return "lol";
-//
-//    }
+    @PostMapping("/crear_usuario/")
+    @Transactional
+    public String crearUsuarioPost(
+            @RequestParam("roles") String[] roles, @RequestParam("username") String usuario,
+            @RequestParam("password") String password, @RequestParam("nombre") String nombre,
+            @RequestParam("apellido") String apellido
+            ){
+        Usuario u = new Usuario();
+        u.setUsername(usuario);
+        u.setNombre(nombre);
+        u.setApellido(apellido);
+        u.setPassword(bCryptPasswordEncoder.encode(password));
+//        List<Rol> rolList = new ArrayList<>();
+        usuarioServices.crearUsuario(u);
+
+        for(String rol: roles){
+            Rol r = new Rol();
+            r.setRol(rol);
+            r.setUsuario(u.getUsername());
+            rolServices.creacionRol(r);
+//           rolList.add(r);
+        }
+//         u.setRoles(rolList);
+//        usuarioServices.crearUsuario(u);
+
+        return "redirect:/zona_admin/";
+    }
+
+    @RequestMapping("/crear_rol/")
+    public String crearRol(Model model){
+        model.addAttribute("rol", new Rol());
+        return "crear_rol";
+    }
+
+    @PostMapping("/crear_rol/")
+    public String crearRolPost(@ModelAttribute Rol rol){
+
+        return "lol";
+    }
 
 
 

@@ -34,7 +34,7 @@ public class RolServices {
     public List<Rol> todosRoles(){
         return rolRepository.findAll();
     }
-    public List<Rol> rolesUsuario(Usuario usuario){
+    public List<Rol> rolesUsuario(String usuario){
         return rolRepository.findAllByUsuario(usuario);
     }
 

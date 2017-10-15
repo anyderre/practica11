@@ -8,11 +8,11 @@ import java.io.Serializable;
 public class Rol implements Serializable{
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String rol;
-    @ManyToOne(cascade = CascadeType.ALL)
-    private Usuario usuario;
+//    @ManyToOne(cascade = CascadeType.ALL)
+    private String usuario;
 
     public int getId() {
         return id;
@@ -30,11 +30,11 @@ public class Rol implements Serializable{
         this.rol = rol;
     }
 
-    public Usuario getUsuario() {
+    public String getUsuario() {
         return usuario;
     }
 
-    public void setUsuario(Usuario usuario) {
+    public void setUsuario(String usuario) {
         this.usuario = usuario;
     }
 }

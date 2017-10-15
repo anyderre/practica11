@@ -33,7 +33,7 @@ public class ConfiguracionSeguridad extends WebSecurityConfigurerAdapter {
         auth.jdbcAuthentication().dataSource(dataSource)
                 .usersByUsernameQuery(
                         "select username,password,enabled from usuario where username=?").authoritiesByUsernameQuery(
-                "select usuario_username, rol from rol where usuario_username=?")  .dataSource(dataSource)
+                        "select usuario, rol from rol where usuario=?")  .dataSource(dataSource)
                 .passwordEncoder(bCryptPasswordEncoder);
     }
 

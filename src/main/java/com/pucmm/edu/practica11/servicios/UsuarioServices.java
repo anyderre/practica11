@@ -51,11 +51,11 @@ public class UsuarioServices {
             usuario.setPassword(bCryptPasswordEncoder.encode("admin"));
             Rol rol = new Rol();
             rol.setRol("ROLE_ADMIN");
-//            List<Rol> roles = new ArrayList<>();
-//            roles.add(rol);
-//            usuario.setRoles(roles);
-//            crearUsuario(usuario);
-            rol.setUsuario(usuario);
+            List<Rol> roles = new ArrayList<>();
+            roles.add(rol);
+            usuario.setRoles(roles);
+            crearUsuario(usuario);
+            rol.setUsuario(usuario.getUsername());
             rolServices.creacionRol(rol);
         }
     }

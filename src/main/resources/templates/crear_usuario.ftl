@@ -41,7 +41,7 @@
                         </div>
                         <div class="panel-body">
 
-                            <form action="#" th:action="@{/crear_usuario/}" th:object="${usuario}" method="POST">
+                            <form action="#" th:action="@{/crear_usuario/}"  method="POST">
                                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
                                 <div class="row">
                                     <div class="col-md-6">
@@ -121,7 +121,6 @@
 
         <!-- Custom Theme JavaScript -->
         <script src="/dist/js/sb-admin-2.js"></script>
-        <script src="/dist/js/custom.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/css/bootstrap-select.min.css">
         <!-- Latest compiled and minified JavaScript -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/js/bootstrap-select.min.js"></script>
