@@ -48,13 +48,13 @@ public class ClienteController {
     public String editarClientePost(@ModelAttribute Cliente cliente){
         clienteServices.creacionCliente(cliente);
         return "redirect:/clientes/";
-
     }
+
 
     @RequestMapping("/crear_cliente/")
     public String crearCliente(Model model){
         model.addAttribute("cliente", new Cliente());
-        return "/crear_cliente";
+        return "crear_cliente";
     }
 
     @PostMapping("/crear_cliente/")
@@ -80,15 +80,6 @@ public class ClienteController {
             System.out.println(e.getMessage());
 
         }
-
         return "redirect:/clientes/";
     }
-
-
-
-
-
-
-
-
 }

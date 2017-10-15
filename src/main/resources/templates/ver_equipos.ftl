@@ -1,31 +1,56 @@
 <!DOCTYPE html>
-<html x lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/html">
 
 <head>
-    <link href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet">
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Free Bootstrap Admin Template : Binary Admin</title>
-    <!-- BOOTSTRAP STYLES-->
-    <link href="assets/css/bootstrap.css" rel="stylesheet" />
-    <!-- FONTAWESOME STYLES-->
-    <link href="assets/css/font-awesome.css" rel="stylesheet" />
-    <!-- MORRIS CHART STYLES-->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-    <!-- CUSTOM STYLES-->
-    <link href="assets/css/custom.css" rel="stylesheet" />
-    <!-- GOOGLE FONTS-->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-    <!-- TABLE STYLES-->
-    <link href="assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
+    <title><@spring.message "crear_equipo"> </@spring.message></title>
+
+    <#include "header.ftl"/>
+
+<#--<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <#--<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.css"/>-->
+    <#--<script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.js"></script>-->
+
+
+
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <#--<!-- Bootstrap Core JavaScript &ndash;&gt;-->
+    <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="/dist/js/sb-admin-2.js"></script>
+    <script src="/dist/js/subFamilia.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/css/bootstrap-select.min.css">
+
+
+<#--<script type="text/javascript">-->
+
+    <#--$(document).ready(function () {-->
+        <#--$('#example').dataTable({-->
+
+        <#--});-->
+    <#--});-->
+
+<#--</script>-->
 
 </head>
 
 <body>
 
-<#include "header.ftl"/>
 
 <div id="wrapper">
+<#include "nav.ftl"/>
 
     <div id="page-wrapper">
         <div id="page-inner">
@@ -37,7 +62,7 @@
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">
-                                <table class="table table-striped table-bordered table-hover">
+                                <table id="example" class="table table-striped table-bordered table-hover">
                                     <thead>
                                     <tr>
                                         <th>
@@ -62,7 +87,7 @@
                                     <#list equipos as u>
                                     <tr class="row-click" data-href="/administracion/editar/${u.id}">
                                         <td width="50px">
-                                            <a href="alquilar_equipo?id=${u.id}&cliente=${cliente}"><img style="width: 150px;height: 100px;" class="img-circle" src="/archivos/${u.ruta_imagen}" /></a>
+                                            <#--<a href="alquilar_equipo?id=${u.id}&cliente=${cliente}"><img style="width: 150px;height: 100px;" class="img-circle" src="/archivos/${u.ruta_imagen}" /></a>-->
                                         </td>
                                         <td>${u.nombre}</td>
                                         <td>${u.subFamilia.familia.nombre}</td>
@@ -91,22 +116,9 @@
 <script src="/webjars/jquery/3.1.0/jquery.min.js"></script>
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
-<!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
-<!-- JQUERY SCRIPTS -->
-<script src="assets/js/jquery-1.10.2.js"></script>
-<!-- BOOTSTRAP SCRIPTS -->
-<script src="assets/js/bootstrap.min.js"></script>
-<!-- METISMENU SCRIPTS -->
-<script src="assets/js/jquery.metisMenu.js"></script>
-<!-- DATA TABLE SCRIPTS -->
-<script src="assets/js/dataTables/jquery.dataTables.js"></script>
-<script src="assets/js/dataTables/dataTables.bootstrap.js"></script>
-<script>
-    $(document).ready(function() {
-        $('#dataTables-example').dataTable();
-    });
-</script>
+
+
 <!-- CUSTOM SCRIPTS -->
-<script src="assets/js/custom.js"></script>
+
 
 </html>

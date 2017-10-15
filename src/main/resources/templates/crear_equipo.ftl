@@ -92,7 +92,7 @@
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="correo"><@spring.message "sub_familia" />:</label>
-                                        <select name="sub-familia" class="selectpicker form-control" id="sub-familia">
+                                        <select name="sub-familia" class="form-control" id="sub-familia">
 
                                         </select>
                                     </div>
@@ -114,7 +114,7 @@
 
                                 <div class="col-md-offset-6 col-md-6">
                                     <div class="form-group">
-                                        <button type="submit" name="action" id="btnCrearEquipo" value="CrearEquipo"
+                                        <button type="submit" name="action" id="btnCrearEquipo" value="crearEquipo"
                                                 class="form-control btn btn-danger"><@spring.message "crear" /></button>
                                     </div>
                                 </div>
