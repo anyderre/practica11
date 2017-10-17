@@ -16,15 +16,15 @@ import java.util.Objects;
  */
 public interface AlquilerRepository extends JpaRepository<Alquiler, Long> {
 
-
+    List<Alquiler> findAllByCedula(String cedula);
 
     List<Alquiler> findAll();
     List<Alquiler> findByFactura(Factura factura);
     @Query("select u from Alquiler u where u.devuelto = :devuelto order by u.factura.fecha")
     List<Alquiler> findByDevueltoOrderByDiasAlquiladoDesc(@Param("devuelto") boolean devuelto);
 
-    @Query("select u from Alquiler u where u.factura.cliente = :cliente")
-    List<Alquiler> buscarPorCliente(@Param("cliente") Cliente c);
+//    @Query("select u from Alquiler u where u.factura.cliente = :cliente")
+//    List<Alquiler> buscarPorCliente(@Param("cliente") Cliente c);
 
     @Query("select avg(u.diasAlquilado), u.equipo.subFamilia.nombre from Alquiler u where u.devuelto='true' group by u.equipo.subFamilia.id")
     List<Object> diasSubfamilias();

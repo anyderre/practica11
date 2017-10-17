@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.transaction.Transactional;
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -39,16 +40,22 @@ public class EquiposController {
 
 
     @RequestMapping("/")
-    public String ver_Equipos(Model model){
-
+    public String ver_Equipos(Model model, HttpServletRequest request){
+        String username = request.getSession().getAttribute("username").toString();
+        Boolean isAdmin= (Boolean) request.getSession().getAttribute("isAdmin");
+        model.addAttribute("username", username);
+        model.addAttribute("usuario", isAdmin);
         List<Equipo> equipos = equipoServices.todosEquipos();
-        System.out.println("Hola :"+equipos.size());
         model.addAttribute("equipos",equipos);
         return "ver_equipos";
     }
 
     @RequestMapping("/editar_equipo")
-    public String editarEquipo(Model model,@RequestParam("id") int id){
+    public String editarEquipo(Model model,HttpServletRequest request, @RequestParam("id") int id){
+        String username = request.getSession().getAttribute("username").toString();
+        Boolean isAdmin= (Boolean) request.getSession().getAttribute("isAdmin");
+        model.addAttribute("username", username);
+        model.addAttribute("usuario", isAdmin);
         Equipo equipo = equipoServices.getEquipo(id);
         model.addAttribute("equipo",equipo);
         model.addAttribute("Familias",familiaServices.todasFamilias());
@@ -71,7 +78,11 @@ public class EquiposController {
 //    }
 
     @RequestMapping("/crear_equipo/")
-    public String crearEquipo(Model model){
+    public String crearEquipo(Model model, HttpServletRequest request){
+        String username = request.getSession().getAttribute("username").toString();
+        Boolean isAdmin= (Boolean) request.getSession().getAttribute("isAdmin");
+        model.addAttribute("username", username);
+        model.addAttribute("usuario", isAdmin);
         model.addAttribute("equipo", new Equipo());
         model.addAttribute("familias", familiaServices.todasFamilias());
         return "crear_equipo";
@@ -80,14 +91,14 @@ public class EquiposController {
     @PostMapping("/crear_equipo/")
     @Transactional
     public String guardarEquipo(@ModelAttribute Equipo equipo,
-                                @RequestParam("uploadfile") MultipartFile uploadfile, @RequestParam("sub-familia") int id_subFamilia){
+                                @RequestParam("uploadfile") MultipartFile uploadfile, @RequestParam("sub-familia") String id_subFamilia){
         try {
-            SubFamilia subFamilia = subFamiliaServices.getSubfamilia(id_subFamilia);
+            SubFamilia subFamilia = subFamiliaServices.getSubfamilia(Integer.parseInt(id_subFamilia));
             equipo.setSubFamilia(subFamilia);
 
             String filename = equipo.getId() + "_" + uploadfile.getOriginalFilename();
             String directory;
-            directory ="C:\\fotos\\Equipos";
+            directory ="C:\\var\\clientes";
             String filepath = Paths.get(directory, filename).toString();
 
             BufferedOutputStream stream =

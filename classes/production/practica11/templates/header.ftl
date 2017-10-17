@@ -1,4 +1,8 @@
 <!-- Bootstrap Core CSS -->
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+
 <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
 <!-- MetisMenu CSS -->
@@ -9,6 +13,7 @@
 
 <!-- Custom Fonts -->
 <link href="/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+<script src="/vendor/jquery/jquery.min.js"></script>
 
 <link href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet">
 

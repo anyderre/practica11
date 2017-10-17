@@ -5,33 +5,23 @@
     <link href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet">
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Free Bootstrap Admin Template : Binary Admin</title>
-    <!-- BOOTSTRAP STYLES-->
-    <link href="assets/css/bootstrap.css" rel="stylesheet" />
-    <!-- FONTAWESOME STYLES-->
-    <link href="assets/css/font-awesome.css" rel="stylesheet" />
-    <!-- MORRIS CHART STYLES-->
-
-    <!-- CUSTOM STYLES-->
-    <link href="assets/css/custom.css" rel="stylesheet" />
-    <!-- GOOGLE FONTS-->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-    <!-- TABLE STYLES-->
-    <link href="assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
+    <title><@spring.message "ver_alquiler"/></title>
+   <#include "header.ftl"/>
 </head>
 
 <body>
 
-<#include "header.ftl"/>
+<#include "nav.ftl"/>
 
 <div id="wrapper">
     <div id="page-wrapper">
+        <h1 class="page-header"><@spring.message "alquiler"> </@spring.message></h1>
         <div id="page-inner">
             <div class="row">
                 <div class="col-md-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Ver Alquiler Clientes
+                            <h1><@spring.message "ver_alquiler"/></h1>
                         </div>
                         <div class="panel-body">
                             <div class="table-responsive">
@@ -58,7 +48,7 @@
                                         <td>${u.equipo.nombre}</td>
                                         <td>${u.equipo.subFamilia.familia.nombre}</td>
                                         <td>${u.factura.fecha}</td>
-                                        <td><span id="submit-devolver" value="crearUsuario" class="btn btn-primary" data-toggle="modal" data-target="#myModal3"><@spring.message "devolver" /></span></td>
+                                        <td><span id="submit-devolver" value="Devolver" class="btn btn-danger" data-toggle="modal" data-target="#myModal3"><@spring.message "devolver" /></span></td>
                                         <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                                             <div class="modal-dialog" role="document">
                                                 <div class="modal-content">
@@ -102,29 +92,25 @@
     </div>
 </div>
 
+<!-- /#wrapper -->
 
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="/webjars/jquery/3.1.0/jquery.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>
-<!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
-<!-- JQUERY SCRIPTS -->
-<script src="assets/js/jquery-1.10.2.js"></script>
-<!-- BOOTSTRAP SCRIPTS -->
-<script src="assets/js/bootstrap.min.js"></script>
-<!-- METISMENU SCRIPTS -->
-<script src="assets/js/jquery.metisMenu.js"></script>
-<!-- DATA TABLE SCRIPTS -->
-<script src="assets/js/dataTables/jquery.dataTables.js"></script>
-<script src="assets/js/dataTables/dataTables.bootstrap.js"></script>
-<script>
-    $(document).ready(function() {
-        $('#dataTables-example').dataTable();
-    });
+<!-- jQuery -->
+<script src="/vendor/jquery/jquery.min.js"></script>
 
-</script>
-<!-- CUSTOM SCRIPTS -->
-<script src="assets/js/custom.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+<!-- Metis Menu Plugin JavaScript -->
+<script src="/vendor/metisMenu/metisMenu.min.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="/dist/js/sb-admin-2.js"></script>
+<link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/css/bootstrap-select.min.css">
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/js/bootstrap-select.min.js"></script>
+
+
 
 </body>
 

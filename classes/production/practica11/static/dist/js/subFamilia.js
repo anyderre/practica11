@@ -10,12 +10,12 @@ $( document ).ready(function() {
 
             var selected = parseInt(sub.id) === parseInt($('#sub-familia').val());
             console.log(sub);
-            console.log(sub.id);
-
+            // console.log(sub.id);
+            //
             $('#sub-familia').append($('<option>', {
                 value: sub.id,
-                text: sub.nombre,
-                 selected: selected
+                text: sub.nombre
+                 // selected: selected
                 // overflow: hidden
 
             }));

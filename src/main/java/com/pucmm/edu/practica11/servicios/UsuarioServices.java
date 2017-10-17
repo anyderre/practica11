@@ -59,10 +59,6 @@ public class UsuarioServices {
             rolServices.creacionRol(rol);
         }
     }
-    public List<Usuario> profesoresConApellidos(){
-
-        return usuarioRepository.findAllByApellidoNotNull();
-    }
 
 
 
@@ -70,7 +66,4 @@ public class UsuarioServices {
         return usuarioRepository.findAll();
     }
 
-   /* public Usuario profesorPorCedula(String cedula) {
-        return usuarioRepository.consultaProfesor(cedula);
-    }*/
 }

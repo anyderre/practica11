@@ -23,7 +23,7 @@
                 <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                 </li>
                 <li class="divider"></li>
-                <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                <li><a href="/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                 </li>
             </ul>
             <!-- /.dropdown-user -->
@@ -69,61 +69,70 @@
                 </li>
 
                 <li>
-                    <a href="#"><i class="fa fa-sitemap fa-fw"></i>Equipo<span class="fa arrow"></span></a>
+                    <a href="#"><i class="fa fa-sitemap fa-fw"></i><@spring.message "equipo" /><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="/equipos/">Ver Equipos</a>
+                            <a href="/equipos/"><@spring.message "ver_equipos" /></a>
                         </li>
                         <li>
-                            <a href="/equipos/crear_equipo/">Crear Equipo</a>
+                            <a href="/equipos/crear_equipo/"><@spring.message "crear_equipo" /></a>
                         </li>
                     </ul>
                 </li>
+
                 <li>
-                    <a href="#"><i class="fa fa-sitemap fa-fw"></i>Cliente<span class="fa arrow"></span></a>
+                    <a href="#"><i class="fa fa-sitemap fa-fw"></i><@spring.message "cliente"> </@spring.message><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="/clientes/">Ver Cliente</a>
+                            <a href="/clientes/"><@spring.message "ver_cliente"> </@spring.message></a>
                         </li>
                         <li>
-                            <a href="/clientes/crear_cliente">Crear Cliente</a>
+                            <a href="/clientes/crear_cliente/"><@spring.message "crear_cliente"> </@spring.message></a>
                         </li>
 
                     </ul>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-files-o fa-fw"></i>Familia<span class="fa arrow"></span></a>
+                    <a href="#"><i class="fa fa-files-o fa-fw"></i><@spring.message "familia"> </@spring.message><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="/zona_admin/familias/crear_familia/">Crear Familia</a>
+                            <a href="/zona_admin/familias/crear_familia/"><@spring.message "crear_familia"> </@spring.message></a>
                         </li>
                         <li>
-                            <a href="/zona_admin/familias/">Ver Familia</a>
+                            <a href="/zona_admin/familias/"><@spring.message "ver_familia"> </@spring.message></a>
                         </li>
 
                     </ul>
                     <!-- /.nav-second-level -->
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-sitemap fa-fw"></i>Alquilieres<span class="fa arrow"></span></a>
+                    <a href="#"><i class="fa fa-sitemap fa-fw"></i><@spring.message "alquilar" /><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level">
                         <li>
-                            <a href="/alquileres/ver_graficos/">Ver Equipos</a>
+                            <a href="/alquileres/ver_graficos/"><@spring.message "graficos" /></a>
                         </li>
                         <li>
-                            <a href="/alquileres/crear_lista">Crear Alquileres</a>
+                            <a href="/alquileres/redirect/"><@spring.message "crear_alquiler" /></a>
                         </li>
                         <li>
-                            <a href="/alquileres/ver_lista">Ver Alquileres</a>
+                            <a href="/alquileres/devolver/"><@spring.message "devolver_equipos" /></a>
                         </li>
                         <li>
-                            <a href="/alquileres/alquilar_equipo">Alquilar Equipo</a>
+                            <a href="/alquileres/redirect_alq_clientes/"><@spring.message "alquileres_por_cliente" /></a>
                         </li>
                         <li>
-                            <a href="/alquileres/ver_graficos/">Ver graficos</a>
+                            <a href="/alquileres/no_devueltos/"><@spring.message "equipos_no_devueltos" /></a>
+                        </li>
+                    </ul>
+                </li>
+                <li sec:authorize="hasRole('ROLE_ADMIN')">
+                    <a href="#"><i class="fa fa-sitemap fa-fw"></i><@spring.message "usuario" /><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level">
+                        <li>
+                            <a href="/zona_admin/crear_usuario/"><@spring.message "crear_usuario" /></a>
                         </li>
                         <li>
-                            <a href="/alquileres/no_devueltos/">Alquileres no Devueltos</a>
+                            <a href="/zona_admin/"><@spring.message "ver_usuario" /></a>
                         </li>
                     </ul>
                 </li>

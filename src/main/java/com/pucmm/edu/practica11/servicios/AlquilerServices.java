@@ -58,7 +58,7 @@ public class AlquilerServices {
 
     public List<Alquiler> alquileresNoDevueltos(boolean devuelto){return alquilerRepository.findByDevueltoOrderByDiasAlquiladoDesc(devuelto);}
 
-    public List<Alquiler> buscarPorCliente(Cliente c){return alquilerRepository.buscarPorCliente(c);}
+    public List<Alquiler> buscarPorCliente(String cedula){return alquilerRepository.findAllByCedula(cedula);}
     public List<Object> subFamiliasDias(){return alquilerRepository.diasSubfamilias();}
     public List<Object> familiasDias(){return alquilerRepository.diasFamilias();}
 

@@ -1,10 +1,8 @@
 /**
- *  Created by Dany 13/10/2017
+ *  Created by Dany 16/10/2017
  */
 
 $( document ).ready(function() {
-
-
         $.get("/sub_familias/", function(data, status){
                 var headers = [];
                 var values = [];
@@ -13,7 +11,7 @@ $( document ).ready(function() {
                 values.push(parseFloat(d[0]).toPrecision(4));
 
             });
-            var max = Math.ceil(Math.max(...values));
+            var max = Math.ceil(Math.max(values));
             console.log(max);
             $("#demo").jChart({
                 name: "Promedios de duracion de alquiler por subfamilia",
@@ -32,7 +30,7 @@ $( document ).ready(function() {
             values.push(parseFloat(d[0]).toPrecision(4));
 
         });
-        var max = Math.ceil(Math.max(...values));
+        var max = Math.ceil(Math.max(values));
         console.log(max);
         $("#demo2").jChart({
             name: "Promedios de duracion de alquiler por familia",

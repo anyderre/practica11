@@ -2,6 +2,7 @@ package com.pucmm.edu.practica11;
 
 
 import com.google.gson.Gson;
+import com.pucmm.edu.practica11.entidades.Cliente;
 import com.pucmm.edu.practica11.entidades.Familia;
 import com.pucmm.edu.practica11.servicios.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -44,15 +45,14 @@ public class RestApiController {
         String result = gson.toJson(subFamiliaServices.subFamiliasFamilia(familia));
         return result;
     }
-//
-//    @RequestMapping(value ="/listado_clientes/",method = RequestMethod.GET, produces = "application/json")
-//    public String getClientes(){
-//        List<Cliente> clientes = clienteServices.todosClientes();
-//        Gson gson = new Gson();
-//        String result = gson.toJson(clientes);
-//        return result;
-//    }
-//
+
+    @RequestMapping(value ="/clientes/",method = RequestMethod.GET, produces = "application/json")
+    public String getClientes(){
+        List<Cliente> clientes = clienteServices.todosClientes();
+        Gson gson = new Gson();
+         return gson.toJson(clientes);
+    }
+
 //    @RequestMapping(value ="/sub_familias/",method = RequestMethod.GET, produces = "application/json")
 //    public String getSubfamilias(){
 //        List<Object> objetos = alquilerServices.subFamiliasDias();

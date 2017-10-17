@@ -21,7 +21,6 @@
         <#--<!--        <#include "header.ftl"/>&ndash;&gt;-->
         <#include "nav.ftl"/>
 
-
         <div id="page-wrapper">
             <div class="row">
                 <div class="col-md-12">
@@ -39,7 +38,6 @@
                             </h1>
                         </div>
                         <div class="panel-body">
-
                             <form action="/alquileres/facturar/" id="form-factura" method="POST">
                                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 
@@ -53,25 +51,25 @@
                                                 </tr>
                                             </thead>
                                             <tbody>
-                                                <#list lista_alquiler as u>
+                                                <#list lista as l>
                                                     <tr>
-                                                        <td>${u.equipo.nombre}</td>
-                                                        <td>$${u.equipo.costoDia}</td>
+                                                        <td>${l.equipo.nombre}</td>
+                                                        <td>$${l.equipo.costoDia}</td>
                                                     </tr>
                                                 </#list>
                                             </tbody>
                                         </table>
                                     </div>
                                 </div>
-
-                                <inaput type="hidden" name="cliente" value="${cliente}">
+                                <hr>
+                                <input type="hidden" name="cliente" value="${cliente}">
                                     <div class="row">
 
                                         <div class="col-md-offset-6 col-md-6">
 
-                                            <div class="form-control">
+                                            <div class="form-group">
                                                 <label id="mensaje-validacion" style="color: red"></label><br>
-                                                <button type="submit" id="submit-alquiler" value="crearUsuario" class="btn btn-danger"><@spring.message "despachar" /></button>
+                                                <button type="submit" id="submit-alquiler" value="crearUsuario" class="btn btn-danger form-control"><@spring.message "despachar" /></button>
 
                                             </div>
                                         </div>
@@ -89,22 +87,20 @@
         </div>
         <!-- /#wrapper -->
 
-        <!-- jQuery -->
-        <script src="../assets/vendor/jquery/jquery.min.js"></script>
+            <!-- jQuery -->
+            <script src="/vendor/jquery/jquery.min.js"></script>
 
-        <!-- Bootstrap Core JavaScript -->
-        <script src="../assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+            <!-- Bootstrap Core JavaScript -->
+            <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
 
-        <!-- Metis Menu Plugin JavaScript -->
-        <script src="../assets/vendor/metisMenu/metisMenu.min.js"></script>
+            <!-- Metis Menu Plugin JavaScript -->
+            <script src="/vendor/metisMenu/metisMenu.min.js"></script>
 
-        <!-- Custom Theme JavaScript -->
-        <script src="../dist/js/sb-admin-2.js"></script>
-        <script src="../dist/js/custom.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/css/bootstrap-select.min.css">
-        <!-- Latest compiled and minified JavaScript -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/js/bootstrap-select.min.js"></script>
-
+            <!-- Custom Theme JavaScript -->
+            <script src="/dist/js/sb-admin-2.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/css/bootstrap-select.min.css">
+            <!-- Latest compiled and minified JavaScript -->
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/js/bootstrap-select.min.js"></script>
 
 </body>
 

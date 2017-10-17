@@ -10,12 +10,14 @@ import com.pucmm.edu.practica11.servicios.SubFamiliaServices;
 import com.pucmm.edu.practica11.servicios.UsuarioServices;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
+import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -44,6 +46,7 @@ public class AdminController {
 
     @RequestMapping("/")
     public String verUsuarios(Model model){
+
         ArrayList<Usuario>usuarios = new ArrayList<>();
         for(Usuario usuario: usuarioServices.todosUsuarios()){
             usuario.setRoles(rolServices.rolesUsuario(usuario.getUsername()));
@@ -89,7 +92,7 @@ public class AdminController {
         subFamiliaServices.cracionSubFamilia(sub);
         return "redirect:/zona_admin/familias/editar_familia?id="+ familia.getId();
     }
-
+    @Secured("ROLE_ADMIN")
     @RequestMapping("/crear_usuario/")
     public String crearUsuario(Model model){
         model.addAttribute("usuario", new Usuario());
@@ -109,7 +112,6 @@ public class AdminController {
         u.setNombre(nombre);
         u.setApellido(apellido);
         u.setPassword(bCryptPasswordEncoder.encode(password));
-//        List<Rol> rolList = new ArrayList<>();
         usuarioServices.crearUsuario(u);
 
         for(String rol: roles){
@@ -117,10 +119,7 @@ public class AdminController {
             r.setRol(rol);
             r.setUsuario(u.getUsername());
             rolServices.creacionRol(r);
-//           rolList.add(r);
         }
-//         u.setRoles(rolList);
-//        usuarioServices.crearUsuario(u);
 
         return "redirect:/zona_admin/";
     }

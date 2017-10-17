@@ -23,10 +23,42 @@ public class Alquiler implements Serializable{
 
     private Boolean devuelto;
 
-    private int diasAlquilado =0;
+    private int diasAlquilado;
+
+    private long fecha;
+
+    private long fechaPromesa;
+    public String cedula;
 
     @ManyToOne
     private Factura factura;
+
+    public long getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(long fecha) {
+        this.fecha = fecha;
+    }
+
+    public long getFechaPromesa() {
+        return fechaPromesa;
+    }
+
+    public void setFechaPromesa(long fechaPromesa) {
+        this.fechaPromesa = fechaPromesa;
+    }
+
+    public String getCedula() {
+        return cedula;
+    }
+
+    public void setCedula(String cedula) {
+        this.cedula = cedula;
+    }
+
+    public Alquiler() {
+    }
 
     public Equipo getEquipo() {
         return equipo;

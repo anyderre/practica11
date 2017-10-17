@@ -30,7 +30,6 @@ public class RolServices {
     }
 
 
-
     public List<Rol> todosRoles(){
         return rolRepository.findAll();
     }

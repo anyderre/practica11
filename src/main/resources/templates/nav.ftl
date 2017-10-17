@@ -23,7 +23,7 @@
                 <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                 </li>
                 <li class="divider"></li>
-                <li><a href="login.html"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                <li><a href="/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                 </li>
             </ul>
             <!-- /.dropdown-user -->
@@ -112,30 +112,33 @@
                             <a href="/alquileres/ver_graficos/"><@spring.message "graficos" /></a>
                         </li>
                         <li>
-                            <a href="/alquileres/crear_lista"><@spring.message "crear_alquiler" /></a>
+                            <a href="/alquileres/redirect/"><@spring.message "crear_alquiler" /></a>
                         </li>
                         <li>
-                            <a href="/alquileres/ver_lista"><@spring.message "ver_alquiler" /></a>
+                            <a href="/alquileres/devolver/"><@spring.message "devolver_equipos" /></a>
                         </li>
                         <li>
-                            <a href="/alquileres/alquilar_equipo"><@spring.message "alquilar_equipo" /></a>
+                            <a href="/alquileres/redirect_alq_clientes/"><@spring.message "alquileres_por_cliente" /></a>
                         </li>
                         <li>
-                            <a href="/alquileres/no_devueltos/"><@spring.message "ver_articulos_alquilados" /></a>
+                            <a href="/alquileres/no_devueltos/"><@spring.message "equipos_no_devueltos" /></a>
                         </li>
                     </ul>
                 </li>
-                <li>
-                    <a href="#"><i class="fa fa-sitemap fa-fw"></i><@spring.message "usuario" /><span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level">
-                        <li>
-                            <a href="/zona_admin/crear_usuario/"><@spring.message "crear_usuario" /></a>
-                        </li>
-                        <li>
-                            <a href="/zona_admin/"><@spring.message "ver_usuario" /></a>
-                        </li>
-                    </ul>
-                </li>
+                <#if isAdmin>
+                    <li>
+                        <a href="#"><i class="fa fa-sitemap fa-fw"></i><@spring.message "usuario" /><span class="fa arrow"></span></a>
+                        <ul class="nav nav-second-level">
+                            <li>
+                                <a href="/zona_admin/crear_usuario/"><@spring.message "crear_usuario" /></a>
+                            </li>
+                            <li>
+                                <a href="/zona_admin/"><@spring.message "ver_usuario" /></a>
+                            </li>
+                        </ul>
+                    </li>
+                </#if>
+
             </ul>
         </div>
         <!-- /.sidebar-collapse -->

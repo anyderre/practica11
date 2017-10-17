@@ -41,11 +41,9 @@
                             <form action="/alquileres/alquilar/" id="form-alquiler" method="POST">
                                 <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
 
-
-
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <img style="margin-left: 37%; width: 250px; height: 160px" class="img-circle img-responsive" src="/archivos/${equipo.ruta_imagen}" />
+                                        <img style="margin-left: 37%; width: 250px; height: 160px" class="img-circle img-responsive" src="/clientes/${equipo.ruta_imagen}" />
                                     </div>
                                     <div class="col-md-4">
                                         <table class="table-striped table-bordered table">
@@ -87,7 +85,29 @@
                                     </div>
 
                                 </div>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="nombre"><@spring.message "nombre" />:</label>
+                                            <input type="text" class="form-control" id="nombre" name="nombre">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label for="fecha"><@spring.message "fecha_devuelta" />:</label>
+                                            <input type="date" class="form-control" id="fecha" name="fecha">
+                                        </div>
+                                    </div>
+                                </div>
 
+                                <#--<div class="row">-->
+                                <#--&lt;#&ndash;<div class="col-md-6">&ndash;&gt;-->
+                                    <#--&lt;#&ndash;<div class="form-group">&ndash;&gt;-->
+                                        <#--&lt;#&ndash;<label for="cantidad"><@spring.message "cantidad" />:</label>&ndash;&gt;-->
+                                        <#--&lt;#&ndash;<input type="number" class="form-control" id="cantidad" name="cantidad">&ndash;&gt;-->
+                                    <#--&lt;#&ndash;</div>&ndash;&gt;-->
+                                <#--&lt;#&ndash;</div>&ndash;&gt;-->
+                            <#--</div>-->
                                 <input type="hidden" id="equipo" name="equipo" value="${equipo.id}">
                                 <input type="hidden" name="cliente" value="${cliente}">
                                 <hr>

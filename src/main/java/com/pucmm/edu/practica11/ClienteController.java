@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.BufferedOutputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -30,15 +31,22 @@ public class ClienteController {
 
 
     @RequestMapping("/")
-    public String verClientes (Model model){
-
+    public String verClientes (Model model, HttpServletRequest request){
+        String username = request.getSession().getAttribute("username").toString();
+        Boolean isAdmin= (Boolean) request.getSession().getAttribute("isAdmin");
+        model.addAttribute("username", username);
+        model.addAttribute("usuario", isAdmin);
         List<Cliente> clientes = clienteServices.todosClientes();
         model.addAttribute("clientes",clientes);
         return "ver_clientes";
     }
 
     @RequestMapping("/editar_cliente")
-    public String editarCliente(Model model,@RequestParam("cedula") String cedula){
+    public String editarCliente(Model model,HttpServletRequest request, @RequestParam("cedula") String cedula){
+        String username = request.getSession().getAttribute("username").toString();
+        Boolean isAdmin= (Boolean) request.getSession().getAttribute("isAdmin");
+        model.addAttribute("username", username);
+        model.addAttribute("usuario", isAdmin);
         Cliente cliente = clienteServices.getCliente(cedula);
         model.addAttribute("cliente",cliente);
         return "/editar_cliente";
@@ -52,7 +60,11 @@ public class ClienteController {
 
 
     @RequestMapping("/crear_cliente/")
-    public String crearCliente(Model model){
+    public String crearCliente(Model model, HttpServletRequest request){
+        String username = request.getSession().getAttribute("username").toString();
+        Boolean isAdmin= (Boolean) request.getSession().getAttribute("isAdmin");
+        model.addAttribute("username", username);
+        model.addAttribute("usuario", isAdmin);
         model.addAttribute("cliente", new Cliente());
         return "crear_cliente";
     }

@@ -35,5 +35,8 @@ public class EquipoServices {
         return equipoRepository.findAll();
     }
 
+    public List<Equipo> todosEquiposMayorQueCero(){
+        return equipoRepository.findAllByCantidadGreaterThan(0);
+    }
     public Equipo getEquipo(int id){return  equipoRepository.findById(id);}
 }

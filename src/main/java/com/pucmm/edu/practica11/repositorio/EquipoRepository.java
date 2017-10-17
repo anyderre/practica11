@@ -15,6 +15,8 @@ public interface EquipoRepository extends JpaRepository<Equipo, Long> {
 
     List<Equipo> findAll();
 
+    List<Equipo> findAllByCantidadGreaterThan(int val);
+
     Equipo findById(int id);
 
 

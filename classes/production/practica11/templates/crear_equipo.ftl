@@ -41,24 +41,17 @@
                     </div>
                     <div class="panel-body">
 
-                        <form action="#"  enctype='multipart/form-data' th:action="@{/crear_equipo/}" th:object="${equipo}"  method="POST">
+                        <form action="#" enctype='multipart/form-data' th:action="@{/crear_equipo/}"
+                              th:object="${equipo}" method="POST">
                             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
                             <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="correo"><@spring.message "cedula" />:</label>
-                                        <input type="text" class="form-control" id="cedula" name="cedula">
 
-                                    </div>
-                                </div>
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="nombre"><@spring.message "nombre" />:</label>
                                         <input type="text" class="form-control" id="nombre" name="nombre">
                                     </div>
                                 </div>
-                            </div>
-                            <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
 
@@ -66,55 +59,56 @@
                                         <input type="text" class="form-control" id="cantidad" name="cantidad">
                                     </div>
                                 </div>
+                            </div>
+                            <div class="row">
 
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="costo"><@spring.message "costo" />:</label>
                                         <input type="text" class="form-control" id="costoDia" name="costoDia">
                                     </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label for="correo"><@spring.message "sub_familia" />:</label>
+                                                <select name="sub-familia" class="form-control" id="sub-familia">
+
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+
+                                            <div class="form-group">
+                                                <label for="upload-file-input"><@spring.message "foto" />:</label>
+                                                <input id="upload-file-input" type="file" name="uploadfile" accept="*"/>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
                                         <label for="familia"><@spring.message "familia" />:</label>
                                         <select class="form-control selectpicker" id="familia">
-                                            <#if familias??>
-                                                <#list familias as familia>
-                                                    <option value="${familia.id}"  >${familia.nombre}</option>
-                                                </#list>
-                                            </#if>
-                                        </select>
-                                    </div>
-                                </div>
-
-
-                                <div class="col-md-6">
-                                    <div class="form-group">
-                                        <label for="correo"><@spring.message "sub_familia" />:</label>
-                                        <select name="sub-familia" class="selectpicker form-control" id="sub-familia">
-
+                                        <#if familias??>
+                                            <#list familias as familia>
+                                                <option value="${familia.id}">${familia.nombre}</option>
+                                            </#list>
+                                        </#if>
                                         </select>
                                     </div>
                                 </div>
                             </div>
 
-                            <div class="row">
-
-                                <div class="col-md-6">
-
-                                    <div class="form-group">
-                                        <label for="upload-file-input"><@spring.message "foto" />:</label>
-                                        <input id="upload-file-input" type="file" name="uploadfile" accept="*"/>
-                                    </div>
-                                </div>
-                            </div>
                             <hr>
                             <div class="row">
+                            </div>
+
+                            <div class="row">
+
 
                                 <div class="col-md-offset-6 col-md-6">
                                     <div class="form-group">
-                                        <button type="submit" name="action" id="btnCrearEquipo" value="CrearEquipo"
+                                        <button type="submit" name="action" id="btnCrearEquipo" value="crearEquipo"
                                                 class="form-control btn btn-danger"><@spring.message "crear" /></button>
                                     </div>
                                 </div>

@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"
+      xmlns="http://www.w3.org/1999/html">
 
 <head>
-
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title><@spring.message "crear_cliente"> </@spring.message></title>
+    <title><@spring.message "crear_equipo"> </@spring.message></title>
 
 <#include "header.ftl">
 
@@ -17,9 +17,9 @@
 
 <body>
 
-    <div id="wrapper">
-        <#--<!--        <#include "header.ftl"/>&ndash;&gt;-->
-        <#include "nav.ftl"/>
+<div id="wrapper">
+<#--<!--        <#include "header.ftl"/>&ndash;&gt;-->
+<#include "nav.ftl"/>
 
 
         <div id="page-wrapper">
@@ -46,8 +46,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="correo"><@spring.message "cedula" />:</label>
-                                            <input type="text" class="form-control" id="cedula" name="cedula">
-
+                                            <input type="text" class="form-control" id="cedula" name="cedula" required>
                                         </div>
                                     </div>
                                     <div class="col-md-6">
@@ -87,9 +86,9 @@
                                 <hr>
                                 <div class="row">
 
-                                    <div class="col-md-offset-6 col-md-6">
+                                    <div  class="col-md-6">
                                         <div class="form-group">
-                                            <button type="submit" name="action" id="btnCrearUsuario" value="crearUsuario" class="form-control btn btn-danger"><@spring.message "crear" /></button>
+                                            <button type="submit" name="action" id="btnCrearUsuario" value="crearUsuario"  class="form-control btn btn-danger btn-lg"><@spring.message "crear" /></button>
 
 
                                         </div>
@@ -104,20 +103,28 @@
             <!-- /#page-wrapper -->
 
         </div>
-        <!-- /#wrapper -->
 
-        <!-- jQuery -->
-        <script src="/vendor/jquery/jquery.min.js"></script>
 
-        <!-- Bootstrap Core JavaScript -->
-        <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+    <!-- /#wrapper -->
 
-        <!-- Metis Menu Plugin JavaScript -->
-        <script src="/vendor/metisMenu/metisMenu.min.js"></script>
+    <!-- jQuery -->
+    <script src="/vendor/jquery/jquery.min.js"></script>
 
-        <!-- Custom Theme JavaScript -->
-        <script src="/dist/js/sb-admin-2.js"></script>
-        <script src="/dist/js/custom.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <!-- Metis Menu Plugin JavaScript -->
+    <script src="/vendor/metisMenu/metisMenu.min.js"></script>
+
+    <!-- Custom Theme JavaScript -->
+    <script src="/dist/js/sb-admin-2.js"></script>
+    <script src="/dist/js/subFamilia.js"></script>
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/css/bootstrap-select.min.css">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.11.2/js/bootstrap-select.min.js"></script>
+
 
 </body>
 

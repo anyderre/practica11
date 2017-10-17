@@ -46,7 +46,7 @@
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <label for="correo"><@spring.message "cedula" />:</label>
-                                            <input type="text" class="form-control" id="cedula" name="cedula">
+                                            <input type="text" class="form-control" id="cedula" name="cedula" required>
                                         </div>
                                     </div>
                                     <div class="col-md-6">

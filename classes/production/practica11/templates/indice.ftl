@@ -4,23 +4,24 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Indice</title>
-    <!-- Bootstrap Core CSS -->
-    <link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <title>Index</title>
+    <#--<!-- Bootstrap Core CSS &ndash;&gt;-->
+    <#--<link href="/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">-->
 
-    <!-- MetisMenu CSS -->
-    <link href="/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">
+    <#--<!-- MetisMenu CSS &ndash;&gt;-->
+    <#--<link href="/vendor/metisMenu/metisMenu.min.css" rel="stylesheet">-->
 
-    <!-- Custom CSS -->
-    <link href="/dist/css/sb-admin-2.css" rel="stylesheet">
+    <#--<!-- Custom CSS &ndash;&gt;-->
+    <#--<link href="/dist/css/sb-admin-2.css" rel="stylesheet">-->
 
-    <!-- Custom Fonts -->
-    <link href="/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <#--<!-- Custom Fonts &ndash;&gt;-->
+    <#--<link href="/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">-->
 
-    <link href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet">
+    <#--&lt;#&ndash;<link href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet">&ndash;&gt;-->
 
-    <link href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet">
-    <!-- GOOGLE FONTS-->
+    <#--&lt;#&ndash;<link href="/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css" rel="stylesheet">&ndash;&gt;-->
+    <#--<!-- GOOGLE FONTS&ndash;&gt;-->
+    <#include "header.ftl">
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 </head>
 
@@ -39,10 +40,10 @@
 </div>
 <!-- /. WRAPPER  -->
 
-<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-<script src="/webjars/jquery/3.1.0/jquery.min.js"></script>
-<!-- Include all compiled plugins (below), or include individual files as needed -->
-<script src="/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>    <!-- /. WRAPPER  -->
+<#--<!-- jQuery (necessary for Bootstrap's JavaScript plugins) &ndash;&gt;-->
+<#--<script src="/webjars/jquery/3.1.0/jquery.min.js"></script>-->
+<#--<!-- Include all compiled plugins (below), or include individual files as needed &ndash;&gt;-->
+<#--<script src="/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js"></script>    <!-- /. WRAPPER  &ndash;&gt;-->
 <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
 <!-- JQUERY SCRIPTS -->
 <script src="/vendor/jquery/jquery.min.js"></script>
