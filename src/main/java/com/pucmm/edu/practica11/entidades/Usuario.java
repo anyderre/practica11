@@ -10,7 +10,6 @@ import java.util.List;
 public class Usuario implements Serializable{
 
     @Id
-
     @Column(unique=true,columnDefinition="VARCHAR(64)")
     private String username;
     private String nombre;

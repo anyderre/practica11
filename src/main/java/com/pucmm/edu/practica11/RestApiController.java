@@ -53,21 +53,21 @@ public class RestApiController {
          return gson.toJson(clientes);
     }
 
-//    @RequestMapping(value ="/sub_familias/",method = RequestMethod.GET, produces = "application/json")
-//    public String getSubfamilias(){
-//        List<Object> objetos = alquilerServices.subFamiliasDias();
-//        Gson gson = new Gson();
-//        String result = gson.toJson(objetos);
-//        return result;
-//    }
-//
-//    @RequestMapping(value ="/familias/",method = RequestMethod.GET, produces = "application/json")
-//    public String getFamilias(){
-//        List<Object> objetos = alquilerServices.familiasDias();
-//        Gson gson = new Gson();
-//        String result = gson.toJson(objetos);
-//        return result;
-//    }
+    @RequestMapping(value ="/sub_familias/",method = RequestMethod.GET, produces = "application/json")
+    public String getSubfamilias(){
+        List<Object> objetos = alquilerServices.subFamiliasDias();
+        Gson gson = new Gson();
+        String result = gson.toJson(objetos);
+        return result;
+    }
+
+    @RequestMapping(value ="/familias/",method = RequestMethod.GET, produces = "application/json")
+    public String getFamilias(){
+        List<Object> objetos = alquilerServices.familiasDias();
+        Gson gson = new Gson();
+        String result = gson.toJson(objetos);
+        return result;
+    }
 //
 //    @RequestMapping(value ="/validar_existencia",method = RequestMethod.GET, produces = "application/json")
 //    public String validarExistencia(@RequestParam("id") int equipo_id){
